@@ -103,7 +103,7 @@ options config =
       ) <*
       optional (strOption
            (long "style" <> help "Style to print with (historical, now ignored)" <> metavar "STYLE") :: Parser String)
-    exts = fmap getExtensions (many (option auto (short 'X' <> help "Language extension" <> metavar "GHCEXT")))
+    exts = fmap getExtensions (many (strOption (short 'X' <> help "Language extension" <> metavar "GHCEXT")))
     indentSpaces =
         option auto
            (long "indent-size" <> help "Indentation size in spaces" <> value (configIndentSpaces config) <> showDefault) <|>
